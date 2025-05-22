@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>✨ Fate Check: Katarína's Biz Card ✨</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Pacifico&family=VT323&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffccf9, #c1f7b3);
+      font-family: 'VT323', monospace;
+      color: #1e1e1e;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      color: #ff00aa;
+      font-size: 3rem;
+      text-shadow: 1px 1px #fff;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .stars {
+      font-size: 1.5rem;
+      color: #ff00aa;
+      margin-bottom: 1rem;
+    }
+
+    .dice {
+      font-size: 5rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .dice:hover {
+      transform: scale(1.2) rotate(20deg);
+    }
+
+    .message {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .card {
+      margin-top: 2rem;
+      padding: 2rem;
+      background: #fff0fc;
+      border: 3px dashed #00ff88;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #ff00aa99;
+      max-width: 400px;
+      text-align: center;
+      display: none;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .card h2 {
+      font-family: 'Orbitron', sans-serif;
+      color: #ff00aa;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-family: 'VT323', monospace;
+      font-size: 1.2rem;
+      margin: 0.3rem 0;
+    }
+
+    .card a {
+      color: #00cc88;
+      text-decoration: none;
+    }
+
+    .qr img {
+      margin-top: 1rem;
+      width: 100px;
+      border: 2px solid #ff00aa;
+      border-radius: 10px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .sparkles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      background: url('https://media.giphy.com/media/5xaOcLGvzHxDKjufnLW/giphy.gif') repeat center;
+      opacity: 0.1;
+      mix-blend-mode: screen;
+    }
+  </style>
+</head>
+<body>
+  <div class="sparkles"></div>
+
+  <h1>🔮 Fate Roll: Reveal Katarína's Card?</h1>
+  <div class="stars">✨🌙💫🌟</div>
+
+  <div class="dice" onclick="rollDice()">🎲</div>
+  <div class="message" id="message">Click the die to roll your destiny...</div>
+
+  <div class="card" id="card">
+    <h2>Katarína Chlebová</h2>
+    <p><strong>Title:</strong> Digital Designer</p>
+    <p><i class="fas fa-envelope"></i> <a href="mailto:katarina.chlebova@example.com">katarina.chlebova@example.com</a></p>
+    <p><i class="fas fa-phone"></i> <a href="tel:+420987654321">+420 987 654 321</a></p>
+    <p><i class="fas fa-map-marker-alt"></i> Bratislava – Staré Mesto</p>
+    <div class="qr">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?data=mailto:katarina.chlebova@example.com&size=150x150&color=255-0-170&bgcolor=255-240-252" alt="QR kód">
+    </div>
+    <p style="margin-top: 1rem;">✨ You’ve been chosen ✨</p>
+  </div>
+
+  <script>
+    function rollDice() {
+      const roll = Math.floor(Math.random() * 6) + 1;
+      const msg = document.getElementById('message');
+      const card = document.getElementById('card');
+
+      msg.innerText = `You rolled a ${roll}...`;
+
+      if (roll === 6) {
+        msg.innerText += " 🔓 Destiny allows you!";
+        card.style.display = "block";
+      } else {
+        msg.innerText += " ❌ Try again under better stars.";
+        card.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
